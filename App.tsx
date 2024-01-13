@@ -8,20 +8,17 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
 
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-
-
+import InitialNavigation from './src/navigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,24 +28,15 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaProvider>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        backgroundColor={'white'}
+        barStyle={'dark-content'}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Text>App Name: {DeviceInfo.getApplicationName()}</Text>
-          <Text>App Build Id: {`${DeviceInfo.getBundleId()}`}</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+      <View style={{ flex: 1 }}>
+        <InitialNavigation />
+      </View>
+    </SafeAreaProvider>
   );
 }
 
