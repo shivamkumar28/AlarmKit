@@ -1,13 +1,14 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Screens } from "../../constant"
-import Home from "../../modules/dashboard/screens/home"
+import { Routes } from "../../constant"
+import NavigationConfig from "../../config/navigation-config"
+import BottomTab from "../bottom-tab"
 
 
 const Stack = createNativeStackNavigator()
 
 const AppStack = () => {
-    return <Stack.Navigator>
-        <Stack.Screen name={Screens.home} component={Home} />
+    return <Stack.Navigator screenOptions={NavigationConfig}>
+        <Stack.Screen name={Routes.bottomTab} component={BottomTab} />
     </Stack.Navigator>
 }
 

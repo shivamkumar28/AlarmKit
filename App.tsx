@@ -36,6 +36,7 @@ function App(): React.JSX.Element {
           backgroundColor={'white'}
           barStyle={'dark-content'}
         />
+        <SafeAreaView edges={['right', 'bottom', 'left']} />
         <View style={{ flex: 1 }}>
           <InitialNavigation />
         </View>

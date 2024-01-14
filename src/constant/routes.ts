@@ -1,9 +1,11 @@
 const Routes = {
-    appStack: 'appStack'
+    appStack: 'appStack',
+    bottomTab: 'BottomTab',
 }
 
 const Screens = {
-    home: 'Home'
+    home: 'Home',
+    stopwatch: 'StopWatch'
 }
 
 export { Routes, Screens }
